@@ -1,0 +1,21 @@
+mutex eval episodes 48 fps 20.0 tau 0.472
+  k=2 q=0.9 e=1.30 M=260 | m=1: err 0.002 ab 0.02 (base 0.003) | m=2: err 0.001 ab 0.02 (base 0.002) | m=4: err 0.001 ab 0.03 (base 0.001) | m=8: err 0.001 ab 0.21 (base 0.000) | m=16: err 0.002 ab 0.85 (base 0.003)
+  k=2 q=1.0 e=4.23 M=1.27e+03 | m=1: err 0.000 ab 0.13 (base 0.000) | m=2: err 0.000 ab 0.19 (base 0.000) | m=4: err 0.000 ab 0.67 (base 0.000) | m=8: err 0.001 ab 0.89 (base 0.000) | m=16: err 0.002 ab 0.94 (base 0.000)
+  k=3 q=0.9 e=1.30 M=7.97e+03 | m=1: err 0.002 ab 0.02 (base 0.003) | m=2: err 0.001 ab 0.03 (base 0.001) | m=4: err 0.001 ab 0.14 (base 0.000) | m=8: err 0.004 ab 0.87 (base 0.000) | m=16: err 0.004 ab 0.94 (base 0.000)
+  k=3 q=1.0 e=4.23 M=2.12e+04 | m=1: err 0.000 ab 0.13 (base 0.000) | m=2: err 0.000 ab 0.26 (base 0.000) | m=4: err 0.000 ab 0.77 (base 0.000) | m=8: err 0.001 ab 0.89 (base 0.000) | m=16: err 0.002 ab 0.94 (base 0.000)
+  k=4 q=0.9 e=1.30 M=2.94e+05 | m=1: err 0.002 ab 0.02 (base 0.003) | m=2: err 0.001 ab 0.03 (base 0.001) | m=4: err 0.002 ab 0.69 (base 0.000) | m=8: err 0.004 ab 0.88 (base 0.000) | m=16: err 0.004 ab 0.94 (base 0.000)
+  k=4 q=1.0 e=4.23 M=7.49e+05 | m=1: err 0.000 ab 0.13 (base 0.000) | m=2: err 0.000 ab 0.30 (base 0.000) | m=4: err 0.000 ab 0.78 (base 0.000) | m=8: err 0.001 ab 0.89 (base 0.000) | m=16: err 0.002 ab 0.94 (base 0.000)
+sirius eval episodes 50 fps 20.0 tau 0.498
+  k=2 q=0.9 e=1.20 M=244 | m=1: err 0.003 ab 0.01 (base 0.004) | m=2: err 0.003 ab 0.01 (base 0.003) | m=4: err 0.002 ab 0.02 (base 0.002) | m=8: err 0.000 ab 0.10 (base 0.000) | m=16: err 0.001 ab 0.80 (base 0.001)
+  k=2 q=1.0 e=5.11 M=960 | m=1: err 0.001 ab 0.11 (base 0.001) | m=2: err 0.000 ab 0.15 (base 0.000) | m=4: err 0.000 ab 0.51 (base 0.000) | m=8: err 0.000 ab 0.89 (base 0.000) | m=16: err 0.001 ab 0.94 (base 0.002)
+  k=3 q=0.9 e=1.20 M=6.7e+03 | m=1: err 0.003 ab 0.01 (base 0.004) | m=2: err 0.002 ab 0.01 (base 0.003) | m=4: err 0.001 ab 0.05 (base 0.001) | m=8: err 0.002 ab 0.85 (base 0.000) | m=16: err 0.003 ab 0.94 (base 0.002)
+  k=3 q=1.0 e=5.11 M=2.84e+04 | m=1: err 0.001 ab 0.11 (base 0.001) | m=2: err 0.000 ab 0.30 (base 0.000) | m=4: err 0.000 ab 0.78 (base 0.000) | m=8: err 0.000 ab 0.89 (base 0.000) | m=16: err 0.001 ab 0.94 (base 0.002)
+  k=4 q=0.9 e=1.20 M=2.32e+05 | m=1: err 0.003 ab 0.01 (base 0.004) | m=2: err 0.002 ab 0.02 (base 0.003) | m=4: err 0.001 ab 0.42 (base 0.000) | m=8: err 0.002 ab 0.88 (base 0.000) | m=16: err 0.003 ab 0.94 (base 0.002)
+  k=4 q=1.0 e=5.11 M=8.51e+05 | m=1: err 0.001 ab 0.11 (base 0.001) | m=2: err 0.000 ab 0.32 (base 0.000) | m=4: err 0.000 ab 0.78 (base 0.000) | m=8: err 0.000 ab 0.89 (base 0.000) | m=16: err 0.001 ab 0.94 (base 0.002)
+droid eval episodes 29 fps 15.0 tau -0.292
+  k=2 q=0.9 e=0.87 M=95.6 | m=1: err 0.080 ab 0.11 (base 0.081) | m=2: err 0.074 ab 0.12 (base 0.075) | m=4: err 0.060 ab 0.18 (base 0.062) | m=8: err 0.027 ab 0.47 (base 0.012) | m=16: err 0.035 ab 0.88 (base 0.000)
+  k=2 q=1.0 e=2.47 M=258 | m=1: err 0.028 ab 0.35 (base 0.031) | m=2: err 0.022 ab 0.39 (base 0.025) | m=4: err 0.014 ab 0.59 (base 0.006) | m=8: err 0.019 ab 0.89 (base 0.000) | m=16: err 0.021 ab 0.96 (base 0.000)
+  k=3 q=0.9 e=0.87 M=2.05e+03 | m=1: err 0.080 ab 0.11 (base 0.081) | m=2: err 0.071 ab 0.14 (base 0.070) | m=4: err 0.040 ab 0.37 (base 0.029) | m=8: err 0.066 ab 0.88 (base 0.000) | m=16: err 0.069 ab 0.94 (base 0.000)
+  k=3 q=1.0 e=2.47 M=5.82e+03 | m=1: err 0.028 ab 0.35 (base 0.031) | m=2: err 0.020 ab 0.47 (base 0.014) | m=4: err 0.026 ab 0.81 (base 0.000) | m=8: err 0.025 ab 0.92 (base 0.000) | m=16: err 0.021 ab 0.96 (base 0.000)
+  k=4 q=0.9 e=0.87 M=5.32e+04 | m=1: err 0.080 ab 0.11 (base 0.081) | m=2: err 0.070 ab 0.15 (base 0.068) | m=4: err 0.052 ab 0.68 (base 0.004) | m=8: err 0.071 ab 0.89 (base 0.000) | m=16: err 0.069 ab 0.94 (base 0.000)
+  k=4 q=1.0 e=2.47 M=1.52e+05 | m=1: err 0.028 ab 0.35 (base 0.031) | m=2: err 0.020 ab 0.49 (base 0.013) | m=4: err 0.030 ab 0.83 (base 0.000) | m=8: err 0.025 ab 0.92 (base 0.000) | m=16: err 0.021 ab 0.96 (base 0.000)
