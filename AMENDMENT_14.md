@@ -13,3 +13,7 @@ Locked now: experiments/ct_fetch.py (already in locks), experiments/ct_run.py (s
 4. Thresholds are computed once per fold-pool; the site bootstrap resamples sites but does not recompute thresholds (approximation, stated).
 5. PX (cross-set) pools of the plan are NOT part of ct_run.py and will only be run as a secondary analysis after a further lock if time permits.
 6. Probe recipe: t2_run.fit_probe unchanged (logistic, C by calibration log-loss, source error-minimising threshold); calibration = 25% of the training sites.
+
+## Addendum 14c (2026-10-28, before any result was produced)
+Fetch outcome (experiments/out/camtrap/fetch_*.json): CCT 2750/2750 ok (1128 MB); Wellington 3750/3750 ok (2677 MB); Serengeti S3 3694/3750 ok, 56 HTTP 404 (1.5%, below the 5% rule), 2601 MB. Wellington and Serengeti exceeded the user-approved 2.5 GB per set by about 7% and 4% (the size was estimated from a few sample files); originals are not stored, only 224x224 arrays. Features computed for all three sets with the locked `ct_run.py feat`.
+First `ct_run.py run` crashed (KeyError 'mu', before any metric or claim was written): the probe dict from t2_run.fit_probe was passed to t2_run.logits, which needs mu/sd/w/b. Fix = build that parameter dict in fit_fold (same construction as t2_run line 299); no rule, split, seed, pool or claim changed. ct_run.py re-hashed in the lock file.

@@ -73,7 +73,8 @@ def fit_fold(F, y, site, tr_sites, rng):
     tr = np.array([x not in cal for x in site])
     ca = np.array([x in cal for x in site])
     m = np.isin(site, s)
-    P = t2.fit_probe(F[m & tr], y[m & tr], F[m & ca], y[m & ca])
+    f = t2.fit_probe(F[m & tr], y[m & tr], F[m & ca], y[m & ca])
+    P = dict(zip(('mu', 'sd', 'w', 'b'), (np.asarray(a).tolist() for a in f['pred'].params)), C=f['C'], tS=f['tS'], zcal=f['zcal'], rho=f['rho'])
     P['ycal'] = y[m & ca]
     return P
 
