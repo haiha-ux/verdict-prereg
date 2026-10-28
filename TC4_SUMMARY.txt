@@ -1,0 +1,23 @@
+(a) cone_all AURC <= hold_c, m in {4,8}: 0 / 6
+(b) cone_all < cert_k1: 2 / 9
+(c) median5 > hold: 9 / 9 ; sprt5 > hold: 9 / 9
+(d) empty interval <= 1%: 9 / 9
+(e) cov(cone_all) - cov(hold_c) >= .02 at eps .002: 0 / 9
+mutex m 2 c* 0.5 empty 0.0 | AURC reader {'cone_all': 0.00021, 'cone_w5': 0.00021, 'cert_k1': 0.00021, 'hold_c': 0.00021, 'hold': 0.00021, 'ema': 0.00042, 'median5': 0.00244, 'sprt5': 0.0016}
+    cov@.002 (risk) {'cone_all': (0.981, 0.003), 'cone_w5': (0.981, 0.003), 'cert_k1': (0.981, 0.003), 'hold_c': (0.981, 0.003), 'hold': (0.981, 0.003), 'ema': (0.958, 0.0029), 'median5': (0.741, 0.003), 'sprt5': (0.855, 0.003)}
+mutex m 4 c* 0.5 empty 0.0 | AURC reader {'cone_all': 0.00122, 'cone_w5': 0.00122, 'cert_k1': 0.00058, 'hold_c': 0.00067, 'hold': 0.00052, 'ema': 0.00158, 'median5': 0.0123, 'sprt5': 0.00718}
+    cov@.002 (risk) {'cone_all': (0.794, 0.002), 'cone_w5': (0.794, 0.002), 'cert_k1': (0.932, 0.0021), 'hold_c': (0.928, 0.0022), 'hold': (0.931, 0.0018), 'ema': (0.822, 0.0021), 'median5': (0.329, 0.0034), 'sprt5': (0.523, 0.0026)}
+mutex m 8 c* 3 empty 0.0 | AURC reader {'cone_all': 0.00616, 'cone_w5': 0.00616, 'cert_k1': 0.00218, 'hold_c': 0.00204, 'hold': 0.00273, 'ema': 0.00705, 'median5': 0.04118, 'sprt5': 0.03251}
+    cov@.002 (risk) {'cone_all': (0.352, 0.0015), 'cone_w5': (0.352, 0.0015), 'cert_k1': (0.785, 0.0027), 'hold_c': (0.801, 0.0029), 'hold': (0.644, 0.0028), 'ema': (0.55, 0.0031), 'median5': (0.031, 0.0068), 'sprt5': (0.077, 0.0109)}
+sirius m 2 c* 0.5 empty 0.0 | AURC reader {'cone_all': 0.0001, 'cone_w5': 0.0001, 'cert_k1': 0.0001, 'hold_c': 0.0001, 'hold': 0.0001, 'ema': 0.00038, 'median5': 0.00336, 'sprt5': 0.00414}
+    cov@.002 (risk) {'cone_all': (0.989, 0.0021), 'cone_w5': (0.989, 0.0021), 'cert_k1': (0.989, 0.0021), 'hold_c': (0.989, 0.0021), 'hold': (0.989, 0.0021), 'ema': (0.942, 0.0014), 'median5': (0.393, 0.0017), 'sprt5': (0.474, 0.0025)}
+sirius m 4 c* 1 empty 0.0 | AURC reader {'cone_all': 0.00108, 'cone_w5': 0.00108, 'cert_k1': 0.00046, 'hold_c': 0.00047, 'hold': 0.00041, 'ema': 0.00197, 'median5': 0.01945, 'sprt5': 0.0178}
+    cov@.002 (risk) {'cone_all': (0.764, 0.0016), 'cone_w5': (0.764, 0.0016), 'cert_k1': (0.956, 0.0017), 'hold_c': (0.955, 0.0017), 'hold': (0.941, 0.0016), 'ema': (0.793, 0.0017), 'median5': (0.072, 0.0008), 'sprt5': (0.196, 0.002)}
+sirius m 8 c* 3 empty 0.0 | AURC reader {'cone_all': 0.00673, 'cone_w5': 0.00673, 'cert_k1': 0.00267, 'hold_c': 0.00249, 'hold': 0.00345, 'ema': 0.01021, 'median5': 0.06612, 'sprt5': 0.06804}
+    cov@.002 (risk) {'cone_all': (0.387, 0.0029), 'cone_w5': (0.387, 0.0029), 'cert_k1': (0.69, 0.0027), 'hold_c': (0.664, 0.0023), 'hold': (0.429, 0.0021), 'ema': (0.228, 0.0029), 'median5': (0.066, 0.0274), 'sprt5': (0.02, 0.0073)}
+droid m 2 c* 0.5 empty 0.0 | AURC reader {'cone_all': 0.0033, 'cone_w5': 0.0033, 'cert_k1': 0.00321, 'hold_c': 0.00321, 'hold': 0.00321, 'ema': 0.00482, 'median5': 0.01406, 'sprt5': 0.01623}
+    cov@.002 (risk) {'cone_all': (0.802, 0.0039), 'cone_w5': (0.802, 0.0039), 'cert_k1': (0.8, 0.0036), 'hold_c': (0.8, 0.0036), 'hold': (0.8, 0.0036), 'ema': (0.707, 0.0041), 'median5': (0.488, 0.0087), 'sprt5': (0.257, 0.007)}
+droid m 4 c* 3 empty 0.0 | AURC reader {'cone_all': 0.00685, 'cone_w5': 0.00685, 'cert_k1': 0.00521, 'hold_c': 0.00523, 'hold': 0.00555, 'ema': 0.01068, 'median5': 0.04033, 'sprt5': 0.04154}
+    cov@.002 (risk) {'cone_all': (0.624, 0.0019), 'cone_w5': (0.624, 0.0019), 'cert_k1': (0.714, 0.004), 'hold_c': (0.726, 0.0051), 'hold': (0.741, 0.0064), 'ema': (0.625, 0.0072), 'median5': (0.176, 0.0093), 'sprt5': (0.188, 0.0222)}
+droid m 8 c* 4 empty 0.0 | AURC reader {'cone_all': 0.02108, 'cone_w5': 0.02108, 'cert_k1': 0.01252, 'hold_c': 0.01253, 'hold': 0.01453, 'ema': 0.02884, 'median5': 0.09454, 'sprt5': 0.09449}
+    cov@.002 (risk) {'cone_all': (0.345, 0.0026), 'cone_w5': (0.345, 0.0026), 'cert_k1': (0.485, 0.0055), 'hold_c': (0.471, 0.0057), 'hold': (0.312, 0.0062), 'ema': (0.313, 0.0074), 'median5': (0.187, 0.048), 'sprt5': (0.128, 0.039)}
