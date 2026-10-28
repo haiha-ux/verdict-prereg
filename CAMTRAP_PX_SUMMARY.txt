@@ -1,0 +1,6 @@
+cct -> wel sites 150 n 3750 AUC (0.655, 0.636, 0.673) prior dev 0.85 tgt 0.821 err R0/Q/Otsu/oracle [0.208, 0.21, 0.517, 0.179] const-animal 0.179 cert R0/Q 0.149 0.135 covered R0/Q of 10 10 10
+cct -> ss3 sites 150 n 3694 AUC (0.905, 0.872, 0.919) prior dev 0.868 tgt 0.459 err R0/Q/Otsu/oracle [0.529, 0.49, 0.166, 0.163] const-animal 0.541 cert R0/Q 0.163 0.132 covered R0/Q of 10 0 0
+wel -> cct sites 110 n 2750 AUC (0.799, 0.763, 0.832) prior dev 0.822 tgt 0.861 err R0/Q/Otsu/oracle [0.148, 0.143, 0.415, 0.135] const-animal 0.139 cert R0/Q 0.107 0.116 covered R0/Q of 10 10 10
+wel -> ss3 sites 150 n 3694 AUC (0.675, 0.589, 0.786) prior dev 0.828 tgt 0.459 err R0/Q/Otsu/oracle [0.518, 0.53, 0.37, 0.36] const-animal 0.541 cert R0/Q 0.114 0.114 covered R0/Q of 10 1 1
+ss3 -> cct sites 110 n 2750 AUC (0.756, 0.742, 0.764) prior dev 0.481 tgt 0.861 err R0/Q/Otsu/oracle [0.448, 0.432, 0.412, 0.138] const-animal 0.139 cert R0/Q 0.296 0.259 covered R0/Q of 10 4 2
+ss3 -> wel sites 150 n 3750 AUC (0.631, 0.612, 0.648) prior dev 0.484 tgt 0.821 err R0/Q/Otsu/oracle [0.581, 0.469, 0.536, 0.179] const-animal 0.179 cert R0/Q 0.432 0.258 covered R0/Q of 10 9 0
