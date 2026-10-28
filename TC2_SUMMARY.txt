@@ -1,0 +1,24 @@
+(a) cells with V1 abstention >=30% lower than V0: 17 / 72 | of these with reader err<=.005: 17 | share 0.236
+(b) causal abstains >= retro: 108 / 108 1.0
+(c) cert reader-err <= all matched baselines: 191 / 216 0.884 | per baseline {'linear': 0.815, 'hold': 0.963, 'ema': 0.981, 'median5': 1.0, 'sprt5': 1.0}
+(d) |label err diff| <= .003 for all baselines: 115 / 216 0.532
+  (e) mutex k=1 0.333 k=2 0.548 k=3 0.559
+  (e) sirius k=1 0.383 k=2 0.52 k=3 0.551
+  (e) droid k=1 0.441 k=2 0.573 k=3 0.664
+(e) datasets where k=1 abstains <= k=2: 3 / 3
+mutex k 1 m 2 M 65.1 cert err_reader 0.0 abst 0.333 | hold 0.0000 ema 0.0000 median5 0.0014 sprt5 0.0004
+mutex k 1 m 4 M 65.1 cert err_reader 0.0 abst 0.649 | hold 0.0000 ema 0.0000 median5 0.0034 sprt5 0.0013
+mutex k 2 m 2 M 933 cert err_reader 0.0 abst 0.548 | hold 0.0000 ema 0.0000 median5 0.0006 sprt5 0.0002
+mutex k 2 m 4 M 933 cert err_reader 0.0 abst 0.775 | hold 0.0000 ema 0.0000 median5 0.0020 sprt5 0.0004
+sirius k 1 m 2 M 83.5 cert err_reader 0.0 abst 0.383 | hold 0.0000 ema 0.0000 median5 0.0018 sprt5 0.0028
+sirius k 1 m 4 M 83.5 cert err_reader 0.0 abst 0.688 | hold 0.0000 ema 0.0000 median5 0.0089 sprt5 0.0093
+sirius k 2 m 2 M 500 cert err_reader 0.0 abst 0.52 | hold 0.0000 ema 0.0000 median5 0.0015 sprt5 0.0016
+sirius k 2 m 4 M 500 cert err_reader 0.0 abst 0.737 | hold 0.0000 ema 0.0000 median5 0.0071 sprt5 0.0038
+droid k 1 m 2 M 17.7 cert err_reader 0.0 abst 0.441 | hold 0.0002 ema 0.0004 median5 0.0084 sprt5 0.0090
+droid k 1 m 4 M 17.7 cert err_reader 0.0 abst 0.615 | hold 0.0000 ema 0.0014 median5 0.0266 sprt5 0.0327
+droid k 2 m 2 M 105 cert err_reader 0.0 abst 0.573 | hold 0.0000 ema 0.0000 median5 0.0044 sprt5 0.0081
+droid k 2 m 4 M 105 cert err_reader 0.0 abst 0.75 | hold 0.0000 ema 0.0004 median5 0.0153 sprt5 0.0290
+cells 216 with cert n_err_reader==0: 141 | by q: {0.99: 36, 1.0: 105} of {0.99: 108, 1.0: 108}
+max cert err_reader 0.0012
+strictly better / ties per baseline (of cells per baseline): {'linear': (22, 66), 'hold': (40, 64), 'ema': (59, 47), 'median5': (108, 0), 'sprt5': (108, 0)}
+abstention range retro k=1 vs causal k=1 (q=1,V1,m=2): [('mutex', 0.333, 0.333), ('sirius', 0.383, 0.383), ('droid', 0.441, 0.441)]
