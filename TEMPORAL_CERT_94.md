@@ -1,0 +1,34 @@
+# 94. Temporal smoothness certificate: deterministic decisions between frames (formal statement, 2026-10-28)
+STATUS: formal draft of the researcher's hypothesis ("finite actions, continuous frames, multi-order differentials, decisions that are certain instead of purely probabilistic"). Written before any data check. Nothing below is evidence. Prior-art status: UNKNOWN until `.ai/runs/2026-10-28-scout-temporal-cert.md` is read; the core (sound enclosure by interpolation remainder, abstention, minimax width) is expected to be a packaging of optimal recovery / set-membership estimation / sampled-data STL monitoring.
+
+## 1. Objects
+Time t in [0,T]. Finite action/state set Y = {0,1} (the case of several actions: section 5). Latent score s: [0,T] -> R is the score a frozen reader would output on the noiseless continuous scene; the true state is y(t) = 1[s(t) > tau] for a fixed threshold tau (an assumption about the reader: the state is read by thresholding s; it is NOT automatically true).
+Observations at frame times t_1 < ... < t_n with spacing at most h: z_i = s(t_i) + eps_i.
+Assumptions: (S_k) s in C^k and sup |s^(k)| <= M; (N_e) |eps_i| <= e for all i. Both are deterministic, strong, and checked only empirically.
+
+## 2. Enclosure
+For t in [t_i, t_{i+k-1}] let p be the degree k-1 polynomial through the noisy samples (z_j, t_j), j = i..i+k-1. Lagrange remainder: |s(t) - p_exact(t)| <= (M/k!) prod_j |t - t_j| =: R_k(t); noise: |p(t) - p_exact(t)| <= e Lambda_k(t) with Lambda_k(t) = sum_j |l_j(t)| (Lebesgue function of the nodes). Hence under (S_k)+(N_e)
+  |s(t) - p(t)| <= w(t) := R_k(t) + e Lambda_k(t)      (PROVED, textbook interpolation)
+For equispaced nodes with spacing h, max_t R_k <= M h^k * c_k and Lambda_k is bounded by a constant depending on k only (grows with k: higher order is not free).
+Intermediate derivatives: if s and s^(k) are bounded, Landau-Kolmogorov bounds the intermediate derivatives (e.g. |s'| <= sqrt(2 ||s|| ||s''||)); these enter only through M_j, j < k, and are used to tighten R_k when only a bound on |s| and |s^(k)| is known (known inequality; the use is optional).
+
+## 3. Decision rule and soundness
+Rule D(t): output 1 if p(t) - w(t) > tau, output 0 if p(t) + w(t) < tau, otherwise ABSTAIN.
+Theorem 1 (soundness). Under (S_k)+(N_e), every non-abstained output of D equals y(t); the rule makes no error. (Immediate from section 2; "certainty" is exactly conditional on S_k, N_e and on y = 1[s > tau].)
+Theorem 2 (abstention time, upper bound). Suppose s crosses tau at times c_1.. with |s'| >= g on [c_j - d, c_j + d] and |s - tau| >= g d elsewhere... (to be made precise). Then the abstention set around each crossing has length at most 2 w_max / g (+ higher order terms), and abstention elsewhere is empty once w_max < g d. So the abstention fraction scales like (M h^k + e) / g. (Plausible; to be proved with explicit constants.)
+Conjecture 3 (lower bound / optimality). Among all rules that are sound over the whole class {s: S_k(M)} with N_e, the abstention time around a crossing is at least of order (e + M h^k)/g, so D is optimal up to constants (this is the optimal-recovery lower bound: two admissible s differing by <= e at all samples and crossing at distinct times). To be proved; likely known in information-based complexity.
+
+## 4. What it would take to be a contribution (checklist, honest)
+1. Prior art search (scout) says what is not known: probably the packaging for frozen-reader runtime monitors under video sampling, with an empirical test of whether S_k, N_e hold for real readers.
+2. Empirical question that can fail: do real reader scores satisfy (S_k) with a modest M and (N_e) with small e on video of a state change? A step-like true state read by a DINOv2 probe has a transition of finite width; sampled at 1-2 Hz it is not smooth between frames; at video rate it may be.
+3. A sound-but-useless failure mode: if M and e must be set so large that w exceeds the signal range, the rule abstains always. The result is then a negative one (still reportable).
+4. Probabilistic version: with sub-Gaussian noise replace (N_e) by e = sigma sqrt(2 log(n/delta)); soundness then holds with probability 1 - delta (union bound); that returns to probability and is the standard route.
+
+## 5. Several actions
+Scores s_a for a in A (finite). Certified argmax at t: action a* if the lower enclosure of s_{a*} exceeds the upper enclosure of every other s_a, else abstain. Soundness as in Theorem 1 provided the true action is argmax_a s_a (assumption).
+
+## 6. Pre-registered empirical test (to be locked before any data is touched)
+Data: LeRobot gripper videos (sensor labels, dense frame rate, mutex/sirius/droid; the videos are on disk) and camera-trap sequences (frame spacing within a sequence is 0.3-1 s, three frames per sequence; weak). Reader: frozen DINOv2-small CLS+mean-patch probe from the locked pipeline, trained on dev episodes only.
+Procedure: calibrate (M, e) on dev episodes (empirical quantiles q of the k-th finite difference and of the residual to a smooth fit, q in {.9, .99, 1.0}); on held-out episodes record (i) the error rate of non-abstained decisions (Theorem 1 predicts 0 if the assumptions hold; the test is whether it is) and (ii) the abstention fraction, as a function of k in {2, 3, 4}, h (subsampling the video rate) and q.
+Predictions stated before the run: (a) at dev-calibrated M, e with q = 1 the certified error on held-out episodes is NOT zero (the assumptions fail at transitions or under shift) in at least one dataset; (b) abstention is below .3 only when h is at video rate; (c) higher k than 3 does not reduce abstention (Lebesgue growth plus noise); (d) a plain exponential smoother or an SPRT baseline with the same abstention fraction has a lower error. Any of (a)-(d) may fail; the verdict is scored to the letter.
+Baselines at equal abstention: majority vote over a window, exponential moving average with threshold band, SPRT.
