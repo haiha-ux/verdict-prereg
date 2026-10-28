@@ -4,3 +4,12 @@ What was seen before this lock: LILA metadata only (site ids, sequence ids, labe
 Claims C1-C4 as in the plan (C2 predicts a FAILURE of quantile matching under prior shift; C3 certificate validity; C4 cluster-audit validity), Holm, site bootstrap.
 Status of Tier-1: NOT met until the run: 3 sets with verified human labels (CCT, Wellington; Serengeti from secondary sources); WCS included only if its identity with the iWildCam expert-annotated data is confirmed from a primary source before its first image; 110 / 150 / 150 evaluated sites per set. Nothing here is a result.
 Download approval: user approved 2.5 GB per set on 2026-10-28.
+
+## Addendum 14b (before any feature was computed; CCT images fetched 2750/2750, 0 failures; Wellington and Serengeti fetch in progress)
+Locked now: experiments/ct_fetch.py (already in locks), experiments/ct_run.py (stages feat, run). Clarifications to the plan, written before any feature/logit existed:
+1. C4 audit size is counted in SITES: k in {5, 10, 20} audit sites (25 frames each) drawn from the union of audit sites of the 5 folds; the audited rule is R0 of each site's own fold; truth = pooled R0 error on the evaluated frames of all folds (pool P0). Betting bound on site-cluster error sums vs frame-level Clopper-Pearson on the same frames.
+2. C3 is evaluated per case (fold x pool x rule in {R0, Q}); coverage = share of cases with realised regret <= rho; with 5 folds x 3 sets x up to 3 pools the case count is small and is reported as a count, not tested.
+3. Pools PH/PL are formed inside each fold (sites of the fold with metadata empty share >= .60 / <= .20); a fold-pool needs >= 150 frames and >= 10 of each class, else skipped. C2 uses the fold-pools with |label prior - dev prior| >= .20.
+4. Thresholds are computed once per fold-pool; the site bootstrap resamples sites but does not recompute thresholds (approximation, stated).
+5. PX (cross-set) pools of the plan are NOT part of ct_run.py and will only be run as a secondary analysis after a further lock if time permits.
+6. Probe recipe: t2_run.fit_probe unchanged (logistic, C by calibration log-loss, source error-minimising threshold); calibration = 25% of the training sites.
