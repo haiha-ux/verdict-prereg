@@ -1,0 +1,14 @@
+cct regret R0/Q/Otsu [0.02, 0.027, 0.315] errR0 0.135 oracle 0.115 const 0.139 auc 0.851
+  k 5 betting mean 1.0 #rep<.95 0 | CP mean 0.714 #rep<.95 20 | median U/truth 4.7
+  k 10 betting mean 1.0 #rep<.95 0 | CP mean 0.702 #rep<.95 19 | median U/truth 3.2
+  k 20 betting mean 1.0 #rep<.95 0 | CP mean 0.671 #rep<.95 17 | median U/truth 2.3
+wel regret R0/Q/Otsu [0.009, 0.008, 0.397] errR0 0.182 oracle 0.173 const 0.179 auc 0.723
+  k 5 betting mean 1.0 #rep<.95 0 | CP mean 0.887 #rep<.95 15 | median U/truth 3.5
+  k 10 betting mean 1.0 #rep<.95 0 | CP mean 0.859 #rep<.95 13 | median U/truth 2.5
+  k 20 betting mean 1.0 #rep<.95 0 | CP mean 0.834 #rep<.95 12 | median U/truth 1.9
+ss3 regret R0/Q/Otsu [0.009, 0.039, 0.009] errR0 0.06 oracle 0.051 const 0.541 auc 0.983
+  k 5 betting mean 1.0 #rep<.95 0 | CP mean 0.891 #rep<.95 15 | median U/truth 9.6
+  k 10 betting mean 1.0 #rep<.95 0 | CP mean 0.864 #rep<.95 15 | median U/truth 6.3
+  k 20 betting mean 1.0 #rep<.95 0 | CP mean 0.823 #rep<.95 14 | median U/truth 3.9
+C2 pools/rep [3, 3, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 5, 4, 4, 5, 4, 3, 4, 4] sets [('cct', 'ss3'), ('ss3',)] Q-R0 mean 0.276 min/max 0.217 0.315
+C3 1087 / 1154 | shifted 109 / 168 | unshifted 978 / 986
