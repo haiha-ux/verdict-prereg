@@ -1,0 +1,13 @@
+(a) cone_max AURC <= cert_k1: 0 / 9 ; strict wins in m in {4,8}: 0 / 6
+(b) cone_max AURC <= hold_c, m in {4,8}: 0 / 6
+(c) coverage gain >= .02 vs hold_c at eps .002: 1 / 9
+(d) w5 within 5% of cone_max: 8 / 9
+mutex m 2 {'cone_max': 0.00031, 'cone_max_w5': 0.0003, 'cert_k1': 0.00021, 'hold_c': 0.00021, 'hold': 0.00021} | cov@.002 {'cone_max': 0.97, 'cone_max_w5': 0.97, 'cert_k1': 0.981, 'hold_c': 0.981, 'hold': 0.981}
+mutex m 4 {'cone_max': 0.00088, 'cone_max_w5': 0.00087, 'cert_k1': 0.00058, 'hold_c': 0.00067, 'hold': 0.00052} | cov@.002 {'cone_max': 0.904, 'cone_max_w5': 0.904, 'cert_k1': 0.932, 'hold_c': 0.928, 'hold': 0.931}
+mutex m 8 {'cone_max': 0.00288, 'cone_max_w5': 0.00288, 'cert_k1': 0.00218, 'hold_c': 0.00204, 'hold': 0.00273} | cov@.002 {'cone_max': 0.779, 'cone_max_w5': 0.779, 'cert_k1': 0.785, 'hold_c': 0.801, 'hold': 0.644}
+sirius m 2 {'cone_max': 0.00021, 'cone_max_w5': 0.00021, 'cert_k1': 0.0001, 'hold_c': 0.0001, 'hold': 0.0001} | cov@.002 {'cone_max': 0.971, 'cone_max_w5': 0.971, 'cert_k1': 0.989, 'hold_c': 0.989, 'hold': 0.989}
+sirius m 4 {'cone_max': 0.00078, 'cone_max_w5': 0.00078, 'cert_k1': 0.00046, 'hold_c': 0.00047, 'hold': 0.00041} | cov@.002 {'cone_max': 0.931, 'cone_max_w5': 0.931, 'cert_k1': 0.956, 'hold_c': 0.955, 'hold': 0.941}
+sirius m 8 {'cone_max': 0.00343, 'cone_max_w5': 0.00343, 'cert_k1': 0.00267, 'hold_c': 0.00249, 'hold': 0.00345} | cov@.002 {'cone_max': 0.69, 'cone_max_w5': 0.69, 'cert_k1': 0.69, 'hold_c': 0.664, 'hold': 0.429}
+droid m 2 {'cone_max': 0.0062, 'cone_max_w5': 0.00584, 'cert_k1': 0.00321, 'hold_c': 0.00321, 'hold': 0.00321} | cov@.002 {'cone_max': 0.692, 'cone_max_w5': 0.732, 'cert_k1': 0.8, 'hold_c': 0.8, 'hold': 0.8}
+droid m 4 {'cone_max': 0.00938, 'cone_max_w5': 0.00922, 'cert_k1': 0.00521, 'hold_c': 0.00523, 'hold': 0.00555} | cov@.002 {'cone_max': 0.673, 'cone_max_w5': 0.673, 'cert_k1': 0.714, 'hold_c': 0.726, 'hold': 0.741}
+droid m 8 {'cone_max': 0.0187, 'cone_max_w5': 0.01869, 'cert_k1': 0.01252, 'hold_c': 0.01253, 'hold': 0.01453} | cov@.002 {'cone_max': 0.485, 'cone_max_w5': 0.485, 'cert_k1': 0.485, 'hold_c': 0.471, 'hold': 0.312}
