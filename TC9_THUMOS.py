@@ -49,7 +49,8 @@ def stage_fetch():
         if total > CAP:
             print('STOP cap reached', total); break
         try:
-            with urllib.request.urlopen(URL[v.split('_')[1]].format(v), timeout=600) as r, open(tmp, 'wb') as f:
+            import ssl; ctx = ssl.create_default_context(cafile='/etc/ssl/certs/ca-certificates.crt')   # system CA store (venv_dec has none); verification stays on
+            with urllib.request.urlopen(URL[v.split('_')[1]].format(v), timeout=600, context=ctx) as r, open(tmp, 'wb') as f:
                 while b := r.read(1 << 22):
                     f.write(b)
         except Exception as e:  # noqa: BLE001

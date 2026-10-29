@@ -18,3 +18,6 @@ Prediction: sports broadcast video has shot cuts and camera motion, so the reade
 
 ## Procedure
 Script experiments/tc9_thumos.py (stages idx | fetch | embed | run). Plan and script sha256 pushed publicly as Amendment 25 BEFORE stage fetch. One run; independent critic afterwards.
+
+## Addendum 25a (2026-10-29, before any video was read)
+The first fetch failed for all 100 videos with SSL CERTIFICATE_VERIFY_FAILED (the http URLs redirect to https and the decoding venv has no CA bundle). No video byte was saved, nothing was decoded, embedded or run (run stopped on an empty list). Fix: urlopen with ssl.create_default_context(cafile='/etc/ssl/certs/ca-certificates.crt'); certificate verification stays on. The empty fetch log was deleted. Nothing else changed; new script sha256 below.
