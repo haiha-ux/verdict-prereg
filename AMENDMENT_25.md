@@ -1,0 +1,20 @@
+# 104. A label-free regime selector on a third domain: THUMOS14 (Amendment 25, 2026-10-29)
+STATUS: written before any THUMOS14 video was downloaded; only the two public temporal-annotation zips were read. Locked publicly before stage fetch.
+Motivation (post hoc, disclosed): on robot video the age-discounted hold beat smoothing (Amendments 22-23); on surgical video smoothing beat it (Amendment 24). A label-free statistic computed on development data separated the domains: rho = P(reader decision flips over 1.6 s) / P(flips over 0.2 s) was 6.6 / 7.7 / 3.7 on mutex / sirius / droid calib and 1.4 on cataract calib (computed after those results were known). The selector and its cut-off 2 were chosen from these four values; THUMOS14 is the first test.
+
+## Data
+THUMOS14 temporal action localisation, validation + test videos with temporal annotations (annotation zips public; videos fetched one by one from crcv.ucf.edu without login). Licence: no terms found on the site (UNVERIFIED); research use only, no redistribution. Annotation source: the THUMOS14 challenge temporal annotations (human annotators per the challenge; primary-source quote NOT yet obtained, UNVERIFIED). 100 videos drawn by RandomState(20261101) from the labelled videos (download cap 11 GB; if reached, fewer videos, recorded). Split in draw order among successfully fetched videos: train 40, calib 20, eval the rest (<= 40).
+Binary state: 1 if the time point lies inside any annotated action interval (any of the 20 classes), -1 (excluded) inside an 'Ambiguous' interval, else 0. Base grid 5 points per second by timestamp (first decoded frame at or after each grid time).
+
+## Reader and rules
+As theory/103 (frozen DINOv2-small CLS + mean, t2_run.fit_probe on train with C, tau on calib; e, L, c*, mu, sd from calib; rules of tc4_rc.episode, each with its own decision as in Amendments 22 and 24).
+Selector (fixed now): rho on the calib videos' reader decisions at lags .2 s and 1.6 s; rho >= 2 selects hold_c (age discount), else ema (smoothing).
+
+## Claims (m in {8, 16}; eval videos; video bootstrap 2000, seed 20261101)
+S1 (primary): AURC(selected) < AURC(other) with one-sided 95% upper bound < 0, against the human label AND against the reader, at both m (4 comparisons, all must pass).
+S2 (secondary): AURC(selected) < AURC(plain hold) on the label target at both m.
+Reported: all rules at m in {2, 4, 8, 16}; rho and flip rates; probe AUC/error.
+Prediction: sports broadcast video has shot cuts and camera motion, so the reader probably flickers; rho < 2 and ema selected; S1 passes. Not Tier-1 (<= 40 eval videos); one more domain only.
+
+## Procedure
+Script experiments/tc9_thumos.py (stages idx | fetch | embed | run). Plan and script sha256 pushed publicly as Amendment 25 BEFORE stage fetch. One run; independent critic afterwards.
