@@ -21,3 +21,6 @@ Script experiments/tc9_thumos.py (stages idx | fetch | embed | run). Plan and sc
 
 ## Addendum 25a (2026-10-29, before any video was read)
 The first fetch failed for all 100 videos with SSL CERTIFICATE_VERIFY_FAILED (the http URLs redirect to https and the decoding venv has no CA bundle). No video byte was saved, nothing was decoded, embedded or run (run stopped on an empty list). Fix: urlopen with ssl.create_default_context(cafile='/etc/ssl/certs/ca-certificates.crt'); certificate verification stays on. The empty fetch log was deleted. Nothing else changed; new script sha256 below.
+
+## Addendum 25b (2026-10-29, before any video was read)
+The 25a fix was insufficient: www.crcv.ucf.edu does not send its intermediate certificate (openssl: verify return code 21). Fix: the intermediate 'InCommon RSA OV SSL CA 3' was fetched from the AIA URL in the server certificate (http://crt.sectigo.com/InCommonRSAOVSSLCA3.crt; issuer Sectigo Public Server Authentication Root R46, which is in the system store) and appended to a copy of the system CA bundle (data/th14_raw/cabundle.pem); `openssl verify` of the server certificate against it returns OK. Verification stays on. Again no video byte was saved; the fetch log was deleted.
